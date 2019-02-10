@@ -271,32 +271,32 @@ esac
 # ### Load PLUGINS
 # common alias command
 # #### ZSH plugins
-PATH_ZSH_PLUGINS=$HOME/.zsh_plugins
-source $PATH_ZSH_PLUGINS/common-aliases/common-aliases.plugin.zsh
-
-# alias history command
-source $PATH_ZSH_PLUGINS/history/history.plugin.zsh
-
-# alias tmux commmand
-source $PATH_ZSH_PLUGINS/tmux/tmux.plugin.zsh
+source ~/.zplug/init.zsh
 
 # syntax-highlighting
-source $PATH_ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# (If the defer tag is given 2 or above, run after compinit command)
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # zsh-substring-search
-source $PATH_ZSH_PLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh
+zplug "zsh-users/zsh-history-substring-search"
 bindkey -M emacs "" history-substring-search-up
 bindkey -M emacs "" history-substring-search-down
 # unkown error 
 #unfunction echo 
   
 # auto-suggestions
-# too late ! un useful !!!
-#source $PATH_ZSH_PLUGINS/zsh-autosuggestions/autosuggestions.zsh
-#zle-line-init() {
-#    zle autosuggest-start
-#}
-#zle -N zle-line-init
+#zplug "zsh-users/zsh-autosuggestions"
+#zplug "zsh-users/zsh-completions"
+#zplug "chrissicool/zsh-256color"
+
+# #### zplug load
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+zplug load
 
 # ### Programming Language settings
 # #### opam init's code
