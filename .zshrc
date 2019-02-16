@@ -275,6 +275,9 @@ source ~/.zplug/init.zsh
 
 # syntax-highlighting
 # (If the defer tag is given 2 or above, run after compinit command)
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main line brackets pattern cursor)
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[line]='bold'
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # zsh-substring-search
