@@ -275,9 +275,20 @@ source ~/.zplug/init.zsh
 
 # syntax-highlighting
 # (If the defer tag is given 2 or above, run after compinit command)
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main line brackets pattern cursor)
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets cursor)
+# #### main
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[line]='bold'
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=yellow,bold'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=yellow,underline,bold'
+ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=green,underline,bold'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue,bold'
+ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=blue,bold'
+ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]='fg=magenta,bold'
+ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]='fg=magenta,bold'
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]='fg=magenta,bold'
+# #### cursor
+ZSH_HIGHLIGHT_STYLES[cursor]='bold'
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # zsh-substring-search
