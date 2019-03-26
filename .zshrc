@@ -335,3 +335,11 @@ export NVM_DIR="$HOME/.nvm"
 
 # #### Go lang init's code
 [ -d "$HOME/go" ] && export GOPATH=$HOME/go && export PATH=$GOPATH/bin:$PATH
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/toshiki/google-cloud-sdk/path.zsh.inc' ]; then . '/home/toshiki/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then 
+  . "$HOME/google-cloud-sdk/completion.zsh.inc";
+fi
