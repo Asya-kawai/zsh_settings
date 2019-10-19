@@ -343,3 +343,6 @@ if [ -f '/home/toshiki/google-cloud-sdk/path.zsh.inc' ]; then . '/home/toshiki/g
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then 
   . "$HOME/google-cloud-sdk/completion.zsh.inc";
 fi
+
+# k8s auto completion
+[ -s kubectl ] && source <(kubectl completion zsh)
