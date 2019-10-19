@@ -345,4 +345,4 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then
 fi
 
 # k8s auto completion
-[ -s kubectl ] && source <(kubectl completion zsh)
+[ $(command -v kubectl) ] && source <(kubectl completion zsh)
