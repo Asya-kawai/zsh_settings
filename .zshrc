@@ -346,3 +346,8 @@ fi
 
 # k8s auto completion
 [ $(command -v kubectl) ] && source <(kubectl completion zsh)
+
+# deno
+DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+[ $(command -v deno) ] && source <(deno completions bash)
