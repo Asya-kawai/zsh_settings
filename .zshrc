@@ -22,7 +22,7 @@ PATH_LOCAL=$HOME/bin:$HOME/sbin
 #JAVA_HOME=/usr/local/java/jdk1.8.0_91
 
 # #### android SDK
-#PATH_ANDROID_SDK=$HOME/android-studio/bin
+PATH_ANDROID_SDK=$HOME/android-studio/bin
 
 # #### arduino IDE
 #PATH_ARDUINO_IDE=$HOME/Arduino-IDE/arduino-1.6.7
