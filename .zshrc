@@ -41,6 +41,9 @@ PATH=$PATH_ANDROID_SDK:$PATH_RBENV:$PATH_PYENV:$PATH_CONDA:$JAVA_HOME:$PATH_LOCA
 
 export PATH
 
+# ### MAN PATH setting
+export MANPATH=$HOME/man:$MANPATH
+
 # #### LIBRARY setting
 LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH
@@ -271,6 +274,10 @@ esac
 # ### Load PLUGINS
 # common alias command
 # #### ZSH plugins
+if [ ! -e ~/.zplug/init.zsh ]; then
+  # reference: https://github.com/zplug/zplug
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+fi
 source ~/.zplug/init.zsh
 
 # syntax-highlighting
