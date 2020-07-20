@@ -274,7 +274,7 @@ esac
 # ### Load PLUGINS
 # common alias command
 # #### ZSH plugins
-if [ ! -e ~/.zplug/init.zsh ]; then
+if [ ! -d ~/.zplug -o ! -e ~/.zplug/init.zsh ]; then
   # reference: https://github.com/zplug/zplug
   curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 fi
