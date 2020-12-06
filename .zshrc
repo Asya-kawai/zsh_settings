@@ -16,6 +16,7 @@ zstyle ':conpletion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # ##### local
 PATH_LOCAL=$HOME/bin:$HOME/sbin
+PATH_DOT_LOCAL=$HOME/.local/bin
 
 # #### JDK (original JDK installed, check jdk-version.)
 # use update-alternatives for setup 
@@ -37,7 +38,7 @@ PATH_PYENV=$HOME/.pyenv/bin
 #LEININGEN_HOME=/$HOME/bin/leiningen
 
 DEFAULT_PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin
-PATH=$PATH_ANDROID_SDK:$PATH_RBENV:$PATH_PYENV:$PATH_CONDA:$JAVA_HOME:$PATH_LOCAL:$PATH_X11:$DEFAULT_PATH
+PATH=$PATH_ANDROID_SDK:$PATH_RBENV:$PATH_PYENV:$PATH_CONDA:$JAVA_HOME:$PATH_DOT_LOCAL:$PATH_LOCAL:$PATH_X11:$DEFAULT_PATH
 
 export PATH
 
