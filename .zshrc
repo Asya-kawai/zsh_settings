@@ -188,6 +188,7 @@ alias emc="emacsclient"
 alias df="df -Th"
 alias du="du -h"
 alias beep="echo -e '\a'"
+alias p="!!"
 #alias beep="echo -en \"\\007\""
 
 # ### BEEP setting
