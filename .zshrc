@@ -106,15 +106,14 @@ bindkey -e
 # %n => username            %y => cosolename
 # %# => root:# else:%
 # %? => result command code
-# %/ => currentdir	   %~ => currenctdir
-# %S => start reverse	   %s => end reverse
-# %B => start bold	   %b => end bold
-# %U => start underbar	   %u => end underbar
+# %/ => currentdir          %~ => currenctdir
+# %S => start reverse       %s => end reverse
+# %B => start bold          %b => end bold
+# %U => start underbar      %u => end underbar
 #
 # ^[ is escape character 
 # emacs: Ctrl-q ESC
 # vi   : Ctrl-v ESC
-#
 #
 # Use escape sequence in prompt
 # escape character : \e
@@ -133,15 +132,15 @@ setopt correct
 
 case ${UID} in
     0)
-	PROMPT="%{[31m%}%Broot%{[m%}%{[33m%}%B@%{[m%}%{[32m%}%B%m%{[m%}%{[33m%}%B%#%b%{[m%} "
-	SPROMPT="%{[34m%}%Bcorrect: %R --> %r [No/Yes/Abort/Edit]?%b%{[m%}"
-	RPROMPT="%{[32m%}%B[%~]%b%{[m%}"
-	;;
+        PROMPT="%{[31m%}%Broot%{[m%}%{[33m%}%B@%{[m%}%{[32m%}%B%m%{[m%}%{[33m%}%B%#%b%{[m%} "
+        SPROMPT="%{[34m%}%Bcorrect: %R --> %r [No/Yes/Abort/Edit]?%b%{[m%}"
+        RPROMPT="%{[32m%}%B[%~]%b%{[m%}"
+        ;;
     *)
-	PROMPT="%{[36m%}%B$USER%{[m%}%{[33m%}%B@%{[m%}%{[32m%}%B%m%{[m%}%{[33m%}%B%#%b%{[m%} "
-	SPROMPT="%{[34m%}%Bcorrect: %R --> %r [No/Yes/Abort/Edit]?%b%{[m%} "
-	RPROMPT="%{[32m%}%B[%~]%b%{[m%}"
-	;;
+        PROMPT="%{[36m%}%B$USER%{[m%}%{[33m%}%B@%{[m%}%{[32m%}%B%m%{[m%}%{[33m%}%B%#%b%{[m%} "
+        SPROMPT="%{[34m%}%Bcorrect: %R --> %r [No/Yes/Abort/Edit]?%b%{[m%} "
+        RPROMPT="%{[32m%}%B[%~]%b%{[m%}"
+        ;;
 esac
 
 # ### HISTORY settings
@@ -188,7 +187,10 @@ alias emc="emacsclient"
 alias df="df -Th"
 alias du="du -h"
 alias beep="echo -e '\a'"
-alias p="!!"
+# Show previous command
+alias p="fc -ln -1"
+
+# It's noisy...
 #alias beep="echo -en \"\\007\""
 
 # ### BEEP setting
@@ -249,36 +251,36 @@ setopt notify
 # ow : other writeable directory without sticky bit
 
 # ### TERM settings
-if [ "$TERM" = "xterm" ]; then	
-	export TERM="xterm-color"
-elif [ "$TERM" = "kterm" ]; then 
-	export TERM="kterm-color"
+if [ "$TERM" = "xterm" ]; then
+    export TERM="xterm-color"
+elif [ "$TERM" = "kterm" ]; then
+    export TERM="kterm-color"
 fi
 case "${TERM}" in
-	### case is FreeBSD8.X
-	*term* | tmux* | screen*)
-	unset LSCOLORS
-	# For BSD ls
-	export LSCOLORS=exfxcxdxbxegedabagacad
-	# For GUI ls
-	export LS_COLORS='di=01;34:ln=01;35:so=01;32:pi=33:ex=01;31:bd=43;31:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-	zstyle ':completion:*' list-colors 'di=01;34' 'ln=01;35' 'so=01;32' 'ex=01;31' 'bd=43;31' 'cd=43;34'
-	;;
-	### case is FreeBSD8.X
-	cons25 | linux)
-	#unset LANG
-	export LSCOLORS=ExFxCxdxBxegedabagacad
-	export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:sg=46;30:tw=42;30:ow=43;30'
-	zstyle ':completion:*' list-colors 'di=34;1' 'ln=35;1' 'so=32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
-	;;
+    ### case is FreeBSD8.X
+    *term* | tmux* | screen*)
+        unset LSCOLORS
+        # For BSD ls
+        export LSCOLORS=exfxcxdxbxegedabagacad
+        # For GUI ls
+        export LS_COLORS='di=01;34:ln=01;35:so=01;32:pi=33:ex=01;31:bd=43;31:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+        zstyle ':completion:*' list-colors 'di=01;34' 'ln=01;35' 'so=01;32' 'ex=01;31' 'bd=43;31' 'cd=43;34'
+        ;;
+    ### case is FreeBSD8.X
+    cons25 | linux)
+        #unset LANG
+        export LSCOLORS=ExFxCxdxBxegedabagacad
+        export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:sg=46;30:tw=42;30:ow=43;30'
+        zstyle ':completion:*' list-colors 'di=34;1' 'ln=35;1' 'so=32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
+        ;;
 esac
 
 # ### Load PLUGINS
 # common alias command
 # #### ZSH plugins
 if [ ! -d ~/.zplug -o ! -e ~/.zplug/init.zsh ]; then
-  # reference: https://github.com/zplug/zplug
-  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+    # reference: https://github.com/zplug/zplug
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 fi
 source ~/.zplug/init.zsh
 
@@ -304,20 +306,19 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search"
 bindkey -M emacs "" history-substring-search-up
 bindkey -M emacs "" history-substring-search-down
-# unkown error 
-#unfunction echo 
-  
+
 # auto-suggestions
+# It's too heavy...
 #zplug "zsh-users/zsh-autosuggestions"
 #zplug "zsh-users/zsh-completions"
 #zplug "chrissicool/zsh-256color"
 
 # #### zplug load
 if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
-  if read -q; then
-    echo; zplug install
-  fi
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
 fi
 zplug load
 
@@ -325,13 +326,19 @@ zplug load
 # #### opam init's code
 export OPAMBUILDDOC=1
 . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-eval `opam config env`
+if [ $(command -v opam) ]; then
+    eval `opam config env`
+fi
 
 # #### rbenv init's code
-eval "$(rbenv init -)"
+if [ $(command -v rbenv) ]; then
+    eval "$(rbenv init -)"
+fi
 
 # #### pyenv init's code
-eval "$(pyenv init -)"
+if [ $(command -v pyenv) ]; then
+    eval "$(pyenv init -)"
+fi
 
 # #### CURSOR setting
 # unkown error "112yellow"
@@ -344,14 +351,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # #### Go lang init's code
 [ -d "$HOME/go" ] && export GOPATH=$HOME/go && export PATH=$GOPATH/bin:$PATH
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/toshiki/google-cloud-sdk/path.zsh.inc' ]; then . '/home/toshiki/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then 
-  . "$HOME/google-cloud-sdk/completion.zsh.inc";
-fi
 
 # k8s auto completion
 [ $(command -v kubectl) ] && source <(kubectl completion zsh)
