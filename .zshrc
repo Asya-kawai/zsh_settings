@@ -32,8 +32,7 @@ PATH_ANDROID_SDK=$HOME/android-studio/bin
 PATH_RBENV=$HOME/.rbenv/bin
 
 # #### pyenv
-# It old setting, use 'eval "$(pyenv init --path)"' instead of it.
-#PATH_PYENV=$HOME/.pyenv/bin
+PATH_PYENV=$HOME/.pyenv/bin
 
 # #### leiningen --- clojure management tools ---
 #LEININGEN_HOME=/$HOME/bin/leiningen
