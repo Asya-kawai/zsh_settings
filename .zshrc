@@ -58,7 +58,7 @@ export RUBYLIB=".:./lib:${HOME}/local/lib/ruby:/usr/local/lib/ruby"
 LC_MESSAGES="en_US.UTF-8"
 
 # #### LANG 
-export LANG=ja_JP.UTF-8
+#export LANG=ja_JP.UTF-8
 #export LANG="en_US.UTF-8"
 #export LANG="ja_JP.eucJP"
 export XMODIFIERS=@im=ibus
