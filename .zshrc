@@ -324,7 +324,6 @@ zplug load
 
 # ### Programming Language settings
 # #### opam init's code
-export OPAMBUILDDOC=1
 . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 if [ $(command -v opam) ]; then
     eval `opam config env`
