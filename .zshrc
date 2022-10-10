@@ -6,6 +6,8 @@ zstyle :compinstall filename '$HOME/.zshrc'
 zstyle ':conpletion:*' matcher-list 'm:{a-z}={A-Z}'
 # sudo path setting.
 #zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+# Auto rehash.
+zstyle ":completion:*:commands" rehash 1
 
 # ### PATH settings
 # PATH_XXX => XXX's path
