@@ -13,10 +13,10 @@ zstyle ":completion:*:commands" rehash 1
 # PATH_XXX => XXX's path
 # PATH => ENV
 
-# ##### X11
+# #### X11
 # PATH_X11=/usr/X11R6/bin:/usr/X11R6/sbin
 
-# ##### local
+# #### local
 PATH_LOCAL=$HOME/bin:$HOME/sbin
 PATH_DOT_LOCAL=$HOME/.local/bin
 
@@ -47,7 +47,7 @@ export PATH
 # ### MAN PATH setting
 export MANPATH=$HOME/man:$MANPATH
 
-# #### LIBRARY setting
+# #### LIBRARY settings
 LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH
 
@@ -68,7 +68,7 @@ export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 
 # ### COMPLECATION CONF settings
-# default complication setting
+# default complication settings
 autoload -Uz compinit
 compinit
 setopt auto_param_keys
@@ -99,11 +99,11 @@ setopt nolistbeep
 # #### Print japanese
 setopt print_eight_bit
 
-# ### KEYBIND setting
+# ### KEYBIND settings
 #Emacs style keybind
 bindkey -e
 
-# ### PROMPT setting
+# ### PROMPT settings
 # %M => fullhostname        %m => hostname
 # %n => username            %y => cosolename
 # %# => root:# else:%
@@ -195,7 +195,7 @@ alias p="fc -ln -1"
 # It's noisy...
 #alias beep="echo -en \"\\007\""
 
-# ### BEEP setting
+# ### BEEP settings
 setopt no_beep
 
 # ### NO EXIT BY Ctrl-d
@@ -283,6 +283,11 @@ esac
 if [ ! -d ~/.zplug -o ! -e ~/.zplug/init.zsh ]; then
     # reference: https://github.com/zplug/zplug
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+    # Wait for file exraction.
+    sleep 3
+fi
+if [ ! -d $ZPLUG_CACHE_DIR ]; then
+    ZPLUG_USE_CACHE=false
 fi
 source ~/.zplug/init.zsh
 
@@ -317,10 +322,7 @@ bindkey -M emacs "" history-substring-search-down
 
 # #### zplug load
 if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
+    zplug install
 fi
 zplug load
 
@@ -342,7 +344,7 @@ if [ $(command -v pyenv) ]; then
     eval "$(pyenv init -)"
 fi
 
-# #### CURSOR setting
+# #### CURSOR settings
 # unkown error "112yellow"
 #echo -ne '\e]12;yellow\a'
 
