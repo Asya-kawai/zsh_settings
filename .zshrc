@@ -10,9 +10,18 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} m:{A-Z}={a-z}'
 zstyle ":completion:*:commands" rehash 1
 # Never select the parent directory (e.g.: cd ../<TAB>)
 #zstyle ':completion:*:(cd|mv|cp):*' ignore-parents parent pwd
-# First normal completion will be tried(`_complete'), then spelling correction(`_correct'),
+# Disable the old compctl completion
+zstyle ':completion:*' use-compctl false
+
+# First normal completion will be tried (`_complete'), then spelling correction (`_correct'),...
 # and finally approximate completion (`_approximate').
-zstyle ':completion:*' completer _complete _correct _approximate
+# Last completer can be used to try completion (`_prefix`) with the suffix (everthing after the cursor).
+zstyle ':completion:*' completer _complete _correct _match _approximate _prefix
+
+# Enable unambiguous completion
+#zstyle ':completion::expand:*' glob true
+#zstyle ':completion::expand:*' sbstitute true
+#zstyle ':completion::match:*' insert-unambiguous 1
 
 # ### PATH settings
 # PATH_XXX => XXX's path
@@ -66,10 +75,10 @@ export QT_IM_MODULE=ibus
 # default complication settings
 autoload -Uz compinit && compinit
 setopt auto_param_keys
+setopt complete_in_word
 # get complication after "="
 setopt magic_equal_subst
-
-# auto reverse suggestion
+# auto reverse suggestion(e.g: Shift + <TAB>)
 bindkey "[Z" reverse-menu-complete
 
 # ### DIRECTORY settings
@@ -217,6 +226,7 @@ setopt glob
 setopt extended_glob
 setopt glob_dots
 setopt case_glob
+setopt glob_complete
 
 # ### NOTICE JOBS
 setopt notify
