@@ -120,6 +120,13 @@ setopt prompt_subst
 autoload -U colors
 colors
 
+# Print a carriage return(current version forces it on)
+setopt prompt_cr
+setopt prompt_sp
+
+# Remove any right prompt from display when accepting a command line
+setopt transient_rprompt
+
 # Command correct
 setopt correct
 
@@ -157,7 +164,7 @@ setopt inc_append_history
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 # #### No save the same command to the hist file
-setopt hist_save_no_dup
+setopt hist_save_no_dups
 # #### Don't record an entry starting with a space
 setopt hist_ignore_space
 
