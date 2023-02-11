@@ -10,6 +10,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} m:{A-Z}={a-z}'
 zstyle ":completion:*:commands" rehash 1
 # Never select the parent directory (e.g.: cd ../<TAB>)
 #zstyle ':completion:*:(cd|mv|cp):*' ignore-parents parent pwd
+# First normal completion will be tried(`_complete'), then spelling correction(`_correct'),
+# and finally approximate completion (`_approximate').
+zstyle ':completion:*' completer _complete _correct _approximate
 
 # ### PATH settings
 # PATH_XXX => XXX's path
