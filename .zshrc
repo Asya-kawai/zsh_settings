@@ -8,6 +8,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} m:{A-Z}={a-z}'
 #zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 # Auto rehash.
 zstyle ":completion:*:commands" rehash 1
+# Never select the parent directory (e.g.: cd ../<TAB>)
+#zstyle ':completion:*:(cd|mv|cp):*' ignore-parents parent pwd
 
 # ### PATH settings
 # PATH_XXX => XXX's path
