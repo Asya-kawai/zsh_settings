@@ -3,7 +3,7 @@
 # The following lines were added by compinstall
 zstyle :compinstall filename '$HOME/.zshrc'
 # No case sensitivity
-zstyle ':conpletion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} m:{A-Z}={a-z}'
 # sudo path setting.
 #zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 # Auto rehash.
