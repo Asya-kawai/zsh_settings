@@ -153,13 +153,15 @@ setopt extended_history
 setopt append_history
 setopt inc_append_history
 
-# #### No add same hist list
+# #### No add the same command to the hist list
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
+# #### No save the same command to the hist file
+setopt hist_save_no_dup
 # #### Don't record an entry starting with a space
 setopt hist_ignore_space
 
-# #### Share hist date
+# #### Share hist data in multiple zsh process
 setopt share_history
 
 # #### No add hist command
