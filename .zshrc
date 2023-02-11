@@ -58,8 +58,7 @@ export QT_IM_MODULE=ibus
 
 # ### COMPLECATION CONF settings
 # default complication settings
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
 setopt auto_param_keys
 # get complication after "="
 setopt magic_equal_subst
