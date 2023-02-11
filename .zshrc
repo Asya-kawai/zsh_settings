@@ -34,7 +34,8 @@ typeset -U path
 path=($PATH_PYENV(N-/) $PATH_RBENV(N-/) $PATH_DOT_LOCAL(N-/) $PATH_LOCAL(N-/) $PATH_X11(N-/) $DEFAULT_PATH(N-/) $path)
 
 # ### MAN PATH setting
-export MANPATH=$HOME/man:$MANPATH
+manpath=($HOME/*/man(N-/) /usr/*/man(N-/) /usr/local/*/man(N-/) $manpath)
+export MANPATH
 
 # #### LIBRARY settings
 LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
