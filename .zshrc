@@ -20,29 +20,17 @@ zstyle ":completion:*:commands" rehash 1
 PATH_LOCAL=$HOME/bin:$HOME/sbin
 PATH_DOT_LOCAL=$HOME/.local/bin
 
-# #### JDK (original JDK installed, check jdk-version.)
-# use update-alternatives for setup 
-#JAVA_HOME=/usr/local/java/jdk1.8.0_91
-
-# #### android SDK
-PATH_ANDROID_SDK=$HOME/android-studio/bin
-
-# #### arduino IDE
-#PATH_ARDUINO_IDE=$HOME/Arduino-IDE/arduino-1.6.7
-
 # #### rbenv
 PATH_RBENV=$HOME/.rbenv/bin
 
 # #### pyenv
 PATH_PYENV=$HOME/.pyenv/bin
 
-# #### leiningen --- clojure management tools ---
-#LEININGEN_HOME=/$HOME/bin/leiningen
-
+# ### defaults
 DEFAULT_PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin
-PATH=$PATH_ANDROID_SDK:$PATH_RBENV:$PATH_PYENV:$JAVA_HOME:$PATH_DOT_LOCAL:$PATH_LOCAL:$PATH_X11:$DEFAULT_PATH
 
-export PATH
+typeset -U path
+path=($PATH_PYENV(N-/) $PATH_RBENV(N-/) $PATH_DOT_LOCAL(N-/) $PATH_LOCAL(N-/) $PATH_X11(N-/) $DEFAULT_PATH(N-/) $path)
 
 # ### MAN PATH setting
 export MANPATH=$HOME/man:$MANPATH
