@@ -71,6 +71,7 @@ bindkey "[Z" reverse-menu-complete
 # Auto change dir
 setopt auto_cd
 setopt mark_dirs
+setopt cdable_vars
 
 # ### COMMAND settings
 # #### cd history
@@ -81,6 +82,7 @@ setopt pushd_ignore_dups
 
 # #### LS(COMMAND)
 setopt list_packed
+setopt list_types
 setopt auto_list
 setopt noautoremoveslash
 setopt nolistbeep
@@ -145,6 +147,7 @@ bindkey "" history-beginning-search-forward-end
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
+# #### Save each command's beginning timestamp (in seconds since the epoch) and the duration (in seconds)
 setopt extended_history
 
 setopt append_history
@@ -153,13 +156,15 @@ setopt inc_append_history
 # #### No add same hist list
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
+# #### Don't record an entry starting with a space
+setopt hist_ignore_space
 
 # #### Share hist date
 setopt share_history
 
 # #### No add hist command
 setopt hist_no_store
-# Delete rest blanks
+# #### Delete rest blanks
 setopt hist_reduce_blanks
 
 # ### ALIAS settings
@@ -195,13 +200,17 @@ limit coredumpsize 0
 
 # ### GLOB settings
 setopt glob
-setopt extendedglob
+setopt extended_glob
 setopt glob_dots
 setopt case_glob
-setopt extended_glob
 
 # ### NOTICE JOBS
 setopt notify
+
+# ### Word split(current version forces it on)
+setopt sh_word_split
+# ### Replace keys to real names(current version forces it on)
+setopt auto_param_keys
 
 # ### LS_COLORS settings
 # 00 : nomal
