@@ -81,9 +81,10 @@ LC_MESSAGES="en_US.UTF-8"
 #export LANG=ja_JP.UTF-8
 #export LANG="en_US.UTF-8"
 #export LANG="ja_JP.eucJP"
-export XMODIFIERS=@im=ibus
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
+IM=${IM:-ibus}
+export XMODIFIERS=${XMODIFIERS:-@im=ibus}
+export GTK_IM_MODULE=${GTK_IM_MODULE:-$IM}
+export QT_IM_MODULE=${QT_IM_MODULE:-$IM}
 
 # ### COMPLECATION CONF settings
 # default complication settings
