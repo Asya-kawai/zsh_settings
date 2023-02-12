@@ -3,7 +3,13 @@
 # The following lines were added by compinstall
 zstyle :compinstall filename '$HOME/.zshrc'
 # No case sensitivity
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} m:{A-Z}={a-z}'
+# First completion will be tried (''),
+# then try to match by changing lowercase to uppercase ('m:{a-z}={A-Z}').
+# Finally try to match by changing uppercase to lowercase ('+m:{A-Z}={a-z}').
+# This means that in order to match the uppercase completion candidates first
+# when the user consciously puts uppercase letters.
+# Reference: https://gihyo.jp/dev/serial/01/zsh-book/0005
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
 # sudo path setting.
 #zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 # Auto rehash.
@@ -16,12 +22,20 @@ zstyle ':completion:*' use-compctl false
 # First normal completion will be tried (`_complete'), then spelling correction (`_correct'),...
 # and finally approximate completion (`_approximate').
 # Last completer can be used to try completion (`_prefix`) with the suffix (everthing after the cursor).
-zstyle ':completion:*' completer _complete _correct _match _approximate _prefix
+zstyle ':completion:*' completer _complete _match _correct _approximate _prefix
+# Must be set to use _prefix in completion.
+setopt complete_in_word
+zstyle ':completion::match:*' insert-unambiguous true
 
-# Enable unambiguous completion
-#zstyle ':completion::expand:*' glob true
-#zstyle ':completion::expand:*' sbstitute true
-#zstyle ':completion::match:*' insert-unambiguous 1
+# Show select menu when processes(e.g: kill) and jobs.
+zstyle ':completion:*:(processes|jobs)' menu true select=2
+zmodload -i zsh/complist
+bindkey -M menuselect \
+        "" up-line-or-history \
+        "" down-line-or-history \
+        "" backward-char \
+        "" forward-char \
+        "" accept-and-infer-next-history
 
 # ### PATH settings
 # PATH_XXX => XXX's path
@@ -75,9 +89,10 @@ export QT_IM_MODULE=ibus
 # default complication settings
 autoload -Uz compinit && compinit
 setopt auto_param_keys
-setopt complete_in_word
 # get complication after "="
 setopt magic_equal_subst
+# word completion(e.g: ECS + Ctrl-I)
+bindkey "^I" complete-word
 # auto reverse suggestion(e.g: Shift + <TAB>)
 bindkey "[Z" reverse-menu-complete
 
@@ -226,7 +241,6 @@ setopt glob
 setopt extended_glob
 setopt glob_dots
 setopt case_glob
-setopt glob_complete
 
 # ### NOTICE JOBS
 setopt notify
