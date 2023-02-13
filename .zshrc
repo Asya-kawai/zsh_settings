@@ -320,6 +320,9 @@ if [ ! -d ~/.zplug -o ! -e ~/.zplug/init.zsh ]; then
     # reference: https://github.com/zplug/zplug
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
     # Wait for file exraction.
+    echo
+    echo Please wait 3 seconds...
+    echo
     sleep 3
 fi
 if [ ! -d $ZPLUG_CACHE_DIR ]; then
