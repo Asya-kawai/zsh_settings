@@ -381,7 +381,7 @@ if [ $(command -v pyenv) ]; then
 fi
 
 # #### CURSOR settings
-# unkown error "112yellow"
+# unknown error "112yellow"
 #echo -ne '\e]12;yellow\a'
 
 # #### nvm init's code
