@@ -63,7 +63,6 @@ path=($PATH_PYENV(N-/) $PATH_RBENV(N-/) $PATH_DOT_LOCAL(N-/) $PATH_LOCAL(N-/) $P
 
 # ### MAN PATH setting
 manpath=($HOME/*/man(N-/) /usr/*/man(N-/) /usr/local/*/man(N-/) $manpath)
-export MANPATH
 
 # #### LIBRARY settings
 LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
