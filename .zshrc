@@ -168,7 +168,7 @@ case ${UID} in
         RPROMPT="%{[32m%}%B[%~]%b%{[m%}"
         ;;
     *)
-        PROMPT="%{[36m%}%B$USER%{[m%}%{[33m%}%B@%{[m%}%{[32m%}%B%m%{[m%}%{[33m%}%B%#%b%{[m%} "
+        PROMPT="%{[36m%}%B%n%{[m%}%{[33m%}%B@%{[m%}%{[32m%}%B%m%{[m%}%{[33m%}%B%#%b%{[m%} "
         SPROMPT="%{[34m%}%Bcorrect: %R --> %r [No/Yes/Abort/Edit]?%b%{[m%} "
         RPROMPT="%{[32m%}%B[%~]%b%{[m%}"
         ;;
