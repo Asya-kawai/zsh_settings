@@ -72,15 +72,17 @@ export LD_LIBRARY_PATH
 # ### RUBY LIBRARY settings
 export RUBYLIB=".:./lib:${HOME}/local/lib/ruby:/usr/local/lib/ruby"
 
-# ### language settings
+# ### Language settings
 # #### JMAN
 # if setting LANG, LC_CTYPE dont need set.
-LC_MESSAGES="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
 
-# #### LANG 
-#export LANG=ja_JP.UTF-8
+# #### LANG
+export LANG=ja_JP.UTF-8
 #export LANG="en_US.UTF-8"
 #export LANG="ja_JP.eucJP"
+
+# ### IM settings
 IM=${IM:-ibus}
 export XMODIFIERS=${XMODIFIERS:-@im=ibus}
 export GTK_IM_MODULE=${GTK_IM_MODULE:-$IM}
