@@ -59,7 +59,7 @@ DEFAULT_PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin
 
 typeset -U path
 # (N-/) ignore the path if it does not exists and do not add it to $path.
-path=($PATH_PYENV(N-/) $PATH_RBENV(N-/) $PATH_DOT_LOCAL(N-/) $PATH_LOCAL(N-/) $PATH_X11(N-/) $DEFAULT_PATH(N-/) $path)
+path=($PATH_PYENV(N-/) $PATH_RBENV(N-/) $PATH_DOT_LOCAL(N-/) $PATH_LOCAL $PATH_X11(N-/) $DEFAULT_PATH $path)
 
 # ### MAN PATH setting
 manpath=($HOME/*/man(N-/) /usr/*/man(N-/) /usr/local/*/man(N-/) $manpath)
