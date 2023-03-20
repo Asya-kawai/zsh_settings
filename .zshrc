@@ -226,6 +226,11 @@ alias beep="echo -e '\a'"
 # Show previous command
 alias p="fc -ln -1"
 
+# ### HELP command
+unalias run-help 2> /dev/null
+autoload -Uz run-help
+alias help=run-help
+
 # It's noisy...
 #alias beep="echo -en \"\\007\""
 
