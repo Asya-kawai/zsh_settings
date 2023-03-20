@@ -292,7 +292,7 @@ setopt auto_param_keys
 
 # ### TERM settings
 if [ "$TERM" = "xterm" ]; then
-    export TERM="xterm-color"
+    export TERM="xterm-256color"
 elif [ "$TERM" = "kterm" ]; then
     export TERM="kterm-color"
 fi
