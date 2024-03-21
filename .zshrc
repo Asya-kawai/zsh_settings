@@ -399,7 +399,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # #### Go lang init's code
-[ -d "$HOME/go" ] && export GOPATH=$HOME/go && export PATH=$GOPATH/bin:$PATH
+[ -d "$HOME/go" ] && export PATH_GO=$HOME/go && export PATH=$PATH_GO/bin:$PATH
+export GOROOT=$HOME/go
 
 # k8s auto completion
 [ $(command -v kubectl) ] && source <(kubectl completion zsh)
