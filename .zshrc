@@ -401,6 +401,8 @@ export NVM_DIR="$HOME/.nvm"
 # #### Go lang init's code
 [ -d "$HOME/go" ] && export PATH_GO=$HOME/go && export PATH=$PATH_GO/bin:$PATH
 export GOROOT=$HOME/go
+# Require install gopls
+export GOPATH=$HOME/go
 
 # k8s auto completion
 [ $(command -v kubectl) ] && source <(kubectl completion zsh)
